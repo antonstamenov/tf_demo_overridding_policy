@@ -28,7 +28,7 @@ The overriding part should be specified with `override_json`, where again this c
 
 The `key` is the `Sid` of the policy statements. If `Sid` matches in the `source_json` and `override_json`, then the one from `override_json` will be used.
 
-NOTE: If `Sid` is empty then it cannot be overridden.
+WARNING: If `Sid` is empty then it cannot be overridden.
 
 
 
