@@ -1,0 +1,25 @@
+= Terraform demos: json policy overriding
+Anton Stamenov <anton.stamenov@gmail.com>
+:source-highlighter: highlightjs
+:aws_iam_policy_document: https://www.terraform.io/docs/providers/aws/d/iam_policy_document.html
+
+
+Use terraform to override json policies.
+
+It is possible to override json policies in terraform by using {aws_iam_policy_document}[`data "aws_iam_policy_document"`]
+
+To do this, specify `source_json`, which can be either external json file or another {aws_iam_policy_document}[`data "aws_iam_policy_document"`]. This is the policy document that will be overridden.
+
+The overriding part should be specified with `override_json`, where again this can be external json file or {aws_iam_policy_document}[`data "aws_iam_policy_document"`].
+
+The `key` is the `Sid` of the policy statements. If `Sid` matches in the `source_json` and `override_json`, then the one from `override_json` will be used.
+
+/!\ If `Sid` is empty then it cannot be overridden.
+
+
+
+.Example: demo.tf
+[source,terraform]
+----
+include::demo.tf[]
+----

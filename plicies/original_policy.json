@@ -1,0 +1,48 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "SQSaccess",
+      "Effect": "Allow",
+      "Action": [
+        "sqs:DeleteMessage",
+        "sqs:GetQueueUrl",
+        "sqs:ListQueues",
+        "sqs:ChangeMessageVisibility",
+        "sqs:SendMessageBatch",
+        "sqs:ReceiveMessage",
+        "sqs:SendMessage",
+        "sqs:GetQueueAttributes",
+        "sqs:ListQueueTags",
+        "sqs:ListDeadLetterSourceQueues",
+        "sqs:DeleteMessageBatch",
+        "sqs:PurgeQueue",
+        "sqs:ChangeMessageVisibilityBatch"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AppBucketDelivery",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:ListBucket",
+        "s3:GetBucketAcl"
+      ],
+      "Resource": [
+        "arn:aws:s3:::${bucket_name}",
+        "arn:aws:s3:::${bucket_name}/*"
+      ]
+    },
+    {
+      "Sid": "SecretManaget",
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:ListSecretVersionIds",
+        "secretsmanager:GetSecretValue"
+      ],
+      "Resource": "arn:aws:secretsmanager:${region}:${account_id}:secret:olympus-db-password-*"
+    }
+  ]
+}

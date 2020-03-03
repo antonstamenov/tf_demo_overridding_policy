@@ -1,0 +1,16 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "SQSaccess",
+      "Effect": "Allow",
+      "Action": [
+        "sqs:DeleteMessage",
+        "sqs:GetQueueUrl",
+        "sqs:ListQueues",
+        "sqs:ChangeMessageVisibility"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
