@@ -1,5 +1,19 @@
 = Terraform demos: json policy overriding
 Anton Stamenov <anton.stamenov@gmail.com>
+ifndef::env-github[:icons: font]
+ifdef::env-github[]
+:idprefix:
+:idseparator: -
+:source-language: terraform
+:language: {source-language}
+:status:
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
 :source-highlighter: highlightjs
 :aws_iam_policy_document: https://www.terraform.io/docs/providers/aws/d/iam_policy_document.html
 
